@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Мафия · игра с друзьями</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="app">
+        <div id="lobby" class="screen">
+            <h1>🕵️ МАФИЯ</h1>
+            <input type="text" id="playerName" placeholder="Ваше имя" autocomplete="off">
+            <div class="buttons">
+                <button id="createGame">Создать игру</button>
+                <button id="joinGame">Присоединиться</button>
+            </div>
+            <div id="gameIdInput" style="display: none;">
+                <input type="text" id="gameId" placeholder="Код игры">
+                <button id="submitJoin">Войти</button>
+            </div>
+        </div>
+        <div id="room" class="screen" style="display: none;">
+            <div id="roomHeader">
+                <span>Код: <span id="roomCode"></span></span>
+                <span>Игроков: <span id="playerCount">0</span>/6</span>
+            </div>
+            <div id="playersList"></div>
+            <button id="startGameBtn" style="display: none;">Старт</button>
+        </div>
+        <div id="game" class="screen" style="display: none;">
+            <div class="phase-indicator" id="phaseIcon">🌙</div>
+            <div class="players-grid" id="gamePlayers"></div>
+            <div class="action-log" id="actionLog"></div>
+            <div class="vote-message" id="voteMessage"></div>
+            <div id="nightActions" style="display: none;"></div>
+        </div>
+    </div>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
